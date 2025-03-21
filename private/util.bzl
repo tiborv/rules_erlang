@@ -76,7 +76,7 @@ def erl_libs_contents(
             ctx.actions.run_shell(
                 inputs = [src],
                 outputs = [dest],
-                command = "cp -RL \"{src}\" \"{dest}\"".format(
+                command = "mkdir -p \"{dest}\"; cp -RL \"{src}\" \"{dest}\"".format(
                     src = src.path,
                     dest = dest.short_path,
                 ),
