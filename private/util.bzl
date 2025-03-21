@@ -76,9 +76,9 @@ def erl_libs_contents(
             ctx.actions.run_shell(
                 inputs = [src],
                 outputs = [dest],
-                command = "set -xe; pwd; touch \"{dest}\"; cp -RL \"{src}\" \"{dest}\"; ls -l \"{dest}\"".format(
+                command = "cp -RL \"{src}\" \"{dest}\"".format(
                     src = src.path,
-                    dest = dest.path,
+                    dest = dest.short_path,
                 ),
                 mnemonic = "RulesErlangCopyPriv",
             )
